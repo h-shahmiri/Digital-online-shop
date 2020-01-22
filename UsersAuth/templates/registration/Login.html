@@ -1,0 +1,83 @@
+{% extends 'navbar.html' %}
+
+    {% block content %}
+
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
+
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+    <!--================Login Box Area =================-->
+    <div class="container">
+    <div class="jumbotron">
+      <div class="text-center">
+        <h1>ورود</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    {% if form.errors %}
+                        <br><br>
+                        <li class="breadcrumb-item text-warning"><a href="#">
+                        Your username and password didn't match. Please try again.</a></li>
+                    {% endif %}
+                </ol>
+            </nav>
+        </div>
+
+        <section class="login_box_area section-margin">
+            <div class="row">
+                    <div class="col-lg-6">
+                        <div class="login_form_inner">
+                            <h3>برای ورود لاگین شوید</h3>
+                            <form method="POST" class="row login_form" id="contactForm" >{% csrf_token %}
+                                <div class="col-md-12 form-group">
+                                    {{ form.username }}
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    {{ form.password }}
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account">
+                                        <input type="checkbox" id="f-option2" name="selector">
+                                        <label for="f-option2">Keep me logged in</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <button type="submit" value="submit" class="button button-login w-100">Log In</button>
+                                    <br><br>
+                                    <a class="text-warning" href="{% url 'password_reset' %}">رمر عبور خود را فراموش کرده اید؟</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <div class="hover">
+                        <h4>در این سایت جدید هستید؟</h4>
+                        <a class="button button-account" href="{% url 'register' %}">ساخت اکانت</a>
+                    </div>
+                </div>
+            </div>
+            </section>
+        </div>
+	<!--================End Login Box Area =================-->
+    <a href="/" class="col-md-12 btn btn-lg btn-Info" roll="button"
+        aria-pressed="true"><b>صحفه اصلی</b></a>
+        <br><br>
+    </div>
+                        
+
+
+    <script type="text/javascript">
+    
+        var user_id = document.getElementById('id_username')
+        user_id.className = ("form-control col-md-12 ml-2 text-right")
+        user_id.placeholder=('نام کاربری')
+
+        var pass_id = document.getElementById('id_password')
+        pass_id.className = ("form-control col-md-12 ml-2 text-right")
+        pass_id.placeholder=('رمز عبور')
+
+    </script>
+
+    {% endblock %}

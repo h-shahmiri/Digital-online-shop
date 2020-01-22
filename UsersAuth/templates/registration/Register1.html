@@ -1,0 +1,107 @@
+{% extends 'navbar.html' %}
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+    {% block content %}
+
+
+	<div class='container'>
+        <div class="jumbotron">
+            <div class="text-center">
+                <button class="btn btn-lg btn-dark col-md-6" data-toggle="collapse" data-target="#register">
+                    Registration Page
+                </button>
+                    {% if request.user.is_authenticated %}
+                        <h3 class="bg-success text-white col-md-11 m-5">{{ regsubmit }} </h3>
+                    {% else %}
+                        <h3 class="bg-warning text-white col-md-11 m-5">{{ regerror }}</h3>
+                    {% endif %}
+
+                    {% if form.errors %}
+                    <br><br>
+                        <p class="bg-warning display-4">Your password is weack.</p>
+                    {% endif %}
+                <br>
+            </div>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-primary">
+                        {{ rgst_form.firstname.label_tag }}&nbsp&nbsp
+                    </div>
+                    {{ rgst_form.firstname }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-primary">
+                        {{ rgst_form.lastname.label_tag }}&nbsp&nbsp
+                    </div>
+                    {{ rgst_form.lastname }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-primary">
+                        {{ form.username.label_tag }}&nbsp
+                    </div>
+                    {{ form.username }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-5 text-primary">
+                        Email: 
+                    </div>
+                    {{ rgst_form.email }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-5 text-primary">
+                        {{ form.password1.label_tag }}&nbsp
+                    </div>
+                    {{ form.password1 }}
+                </div>
+                
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-primary">
+                        Conf password&nbsp&nbsp
+                    </div>
+                    {{ form.password2 }}
+                </div>
+                    <br>
+                        <p class="text-info ml-5">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. </p>
+                        <p class="text-info ml-5">Your password can't be too similar to your other personal information. </p>
+                        <p class="text-info ml-5">Your password must contain at least 8 characters. </p>
+                        <p class="text-info ml-5">Your password can't be a commonly used password. </p>
+                        <p class="text-info ml-5">Your password can't be entirely numeric. </p>
+
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg btn-primary col-md-5" id="logsubmit">Submit</button>
+                </div>
+            <br>
+                
+            </form>
+        </div>
+
+        <a href="/" class="col-md-12 btn btn-lg btn-warning" roll="button" aria-pressed="true">
+            <b>Main Page</b></a>
+
+
+    </div>
+
+    <script type="text/javascript">
+    
+        var user_id = document.getElementById('id_username')
+        user_id.className = ("bg-info form-control col-md-8 ml-4")
+
+        var pass1_id = document.getElementById('id_password1')
+        pass1_id.className = ("bg-info form-control col-md-8 ml-2")
+
+        var pass2_id = document.getElementById('id_password2')
+        pass2_id.className = ("bg-info form-control col-md-8 ml-1")
+
+    </script>
+
+        
+
+{% endblock content %}

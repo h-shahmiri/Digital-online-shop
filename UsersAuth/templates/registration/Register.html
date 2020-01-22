@@ -1,0 +1,98 @@
+{% extends 'navbar.html' %}
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+    {% block content %}
+
+
+	<div class="container">
+    <div class="jumbotron">
+      <div class="text-center">
+        <h1>ثبت نام</h1>
+            <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                <ol class="breadcrumb">
+                    {% if form.errors %}
+                        <br><br>
+                        <li class="breadcrumb-item text-warning"><a href="#">
+                        {{ form.errors }}</a></li>
+                    {% endif %}
+                </ol>
+            </nav>
+        </div>
+
+        <section class="login_box_area section-margin">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form method="POST" class="row login_form" id="contactForm" >{% csrf_token %}
+                        <div class="col-md-12 form-group">
+                            {{ rgst_form.firstname }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ rgst_form.lastname }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ rgst_form.email }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ form.username }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ form.password1 }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ form.password2 }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Keep me logged in</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="button button-login w-100">ثبت نام</button>
+                            <br><br>
+                            <a href="{% url 'password_reset' %}">رمر عبور خود را فراموش کرده اید؟</a>
+                        </div>
+                    </form>
+                </div>
+
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <div class="hover">
+                        <h4>در گذشته ثبت نام کرده ایم؟</h4>
+                        <a class="button button-account" href="{% url 'login' %}">ورود</a>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <p class="text-info ml-5">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. </p>
+            <p class="text-info ml-5">Your password can't be too similar to your other personal information. </p>
+            <p class="text-info ml-5">Your password must contain at least 8 characters. </p>
+            <p class="text-info ml-5">Your password can't be a commonly used password. </p>
+            <p class="text-info ml-5">Your password can't be entirely numeric. </p>
+        </div>
+	<!--================End Login Box Area =================-->
+    <a href="/" class="col-md-12 btn btn-lg btn-Info" roll="button"
+        aria-pressed="true"><b>صحفه اصلی</b></a>
+        <br><br>
+    </div>
+
+    <script type="text/javascript">
+    
+        var user_id = document.getElementById('id_username')
+        user_id.className = ("form-control col-md-12 ml-2 text-right")
+        user_id.placeholder=('نام کاربری')
+
+        var pass1_id = document.getElementById('id_password1')
+        pass1_id.className = ("form-control col-md-12 ml-2 text-right")
+        pass1_id.placeholder=('رمز عبور')
+
+        var pass2_id = document.getElementById('id_password2')
+        pass2_id.className = ("form-control col-md-12 ml-2 text-right")
+        pass2_id.placeholder=('تکرار رمز عبور')
+
+    </script>
+
+        
+
+{% endblock content %}

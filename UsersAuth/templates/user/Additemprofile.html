@@ -1,0 +1,102 @@
+{% extends 'navbar.html' %}
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+    {% block content %}
+
+
+	<div class='container'>
+        <div class="jumbotron">
+            <div class="text-center">
+                <button class="btn btn-lg btn-dark col-md-6" data-toggle="collapse" data-target="#register">
+                    Edite Profile Page
+                    <br>
+                </button>
+
+                <nav aria-label="breadcrumb" class="banner-breadcrumb">
+                    <ol class="breadcrumb">
+                        {% if form.errors %}
+                            <br><br>
+                            <li class="breadcrumb-item text-warning"><a href="#">
+                            {{ form.errors }} sss</a></li>
+                        {% endif %}
+                    </ol>
+                </nav>
+
+        {% if request.user.is_authenticated %}
+
+            <br><br><br>
+            </div>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-white">
+                        {{ address_form.address.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    </div>
+                    {{ address_form.address }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-primary col-md-2" id="logsubmit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-white">
+                        {{ national_form.national_code.label_tag }}&nbsp&nbsp
+                    </div>
+                    {{ national_form.national_code }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-primary col-md-2" id="logsubmit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ post_form.post_code.label_tag }}
+                    </div>
+                    {{ post_form.post_code }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-primary col-md-2" id="logsubmit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        Email:  &nbsp&nbsp
+                    </div>
+                    {{ email_form.add_email }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-primary col-md-2" id="logsubmit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <form method="POST" class="collapse" id="register">{% csrf_token %}
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ phone_form.phone_numb.label_tag }}&nbsp
+                    </div>
+                    {{ phone_form.phone_numb }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg btn-primary col-md-2" id="logsubmit">Submit</button>
+                    </div>
+                </div>
+                <br><br>         
+            </form>
+        </div>
+
+        <a href="/" class="col-md-12 btn btn-lg btn-warning" roll="button" aria-pressed="true">
+            <b>Main Page</b></a>
+    </div>
+
+     {% else %}
+        <br><br>
+            <p class="bg-warning display-4">Your password is weack.</p>
+    {% endif %}
+
+
+{% endblock content %}

@@ -1,0 +1,197 @@
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} Digistore {% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/CSS/bootstrap.css">
+    <script type="text/javascript" src="/static/JS/jquery-3.js"></script>
+
+  <!--================ Start Index  =================-->
+	<link rel="icon" href="/static/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="/static/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="/static/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/static/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/static/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/static/vendors/owl-carousel/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+ 
+	<!--================ End Header Menu Area =================-->
+
+
+
+</head>
+
+	<style>
+		body {
+  			{% comment %} background: #364e68; color: #2c3e50; {% endcomment %}
+    }
+	</style>
+
+<body>
+
+    <script type="text/javascript" src="{% static 'JS/jquery_publick.js' %}"></script>
+    <script type="text/javascript" src="{% static 'JS/bootstrap.js' %}"></script>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <div class="container">
+          <div class="navbar-heading">
+          {% if user.is_authenticated %}
+            <h1><a href="/admin" class="navbar-brand" title="DataBase">{{user}}</a><h1>
+          {% else %}
+            <h1><a href="/admin" class="navbar-brand" title="DataBase">Django</a><h1>
+          {% endif %}
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Links</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/">MainPage</a>
+                  <a class="dropdown-item" href="/">*********</a>
+                  <a class="dropdown-item" href="/">*********</a>
+                  <a class="dropdown-item" href="/">*********</a>
+                  <a class="dropdown-item" href="/">*********</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Users</a>
+              <div class="dropdown-menu">
+                {% if request.user.is_authenticated %}
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                  <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+                  <a class="dropdown-item" href="">**********</a>
+                </div>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'register' %}" data-toggle="popover">Register</a>
+                <a class="dropdown-item" href="{% url 'login' %}" data-toggle="popover" title="Site introduction">
+                  Login</a>
+                <a class="dropdown-item" href="{% url 'login' %}" data-toggle="popover" title="Site introduction">
+                  ***********</a>
+                </div>
+              {% endif %}
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#">Three Line</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Four Button</a></li>
+
+            <form class="form-inline" action="/action_page.php">
+              <input class="form-control ml-sm-5 mr-sm-1" type="text" placeholder="Search">
+              <button class="btn btn-info" type="submit">Search</button>
+            </form>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+            
+              {% if request.user.is_authenticated %} <!-- if moviesreport != null  -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+                <a class="nav-link" href="{% url 'login' %}" data-toggle="popover" title="Site introduction">
+                  Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+              {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+      
+  {% block content %}
+  {% endblock content %}
+
+  
+  <!--================ Start footer Area  =================-->	
+	<footer class="footer">
+		<div class="footer-area">
+			<div class="container">
+				<div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget">
+							<h4 class="footer_title large_title">Our Mission</h4>
+							<p>
+								So seed seed green that winged cattle in. Gathering thing made fly you're no 
+								divided deep moved us lan Gathering thing us land years living.
+							</p>
+							<p>
+								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
+							</p>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6 row">
+						<div class="single-footer-widget">
+							<h4 class="footer_title">Quick Links</h4>
+							<ul class="list">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Shop</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Product</a></li>
+								<li><a href="#">Brand</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 row">
+						<div class="single-footer-widget">
+							<h4 class="footer_title">Contact Us</h4>
+
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Head Office
+								</p>
+								<p>123, Main Street, Your City</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Phone Number
+								</p>
+								<p>
+									+123 456 7890 <br>
+									+123 456 7890
+								</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									free@infoexample.com <br>
+									www.infoexample.com
+								</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
+            All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> 
+            by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="/static/vendors/skrollr.min.js"></script>
+  <script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="/static/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="/static/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="/static/vendors/mail-script.js"></script>
+  <script src="/static/js/main.js"></script>
+
+
+</body>
+</html>

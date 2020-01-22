@@ -1,0 +1,71 @@
+{% extends 'navbar.html' %}
+
+    {% block content %}
+    
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+	<div class='container'>
+        <div class="jumbotron boxstl" >
+            <div class="text-center">
+                <button class="btn btn-lg btn-dark col-md-6" data-toggle="collapse" data-target="#logine">Login Page</button>
+                <br>
+            </div>
+
+            {% if form.errors %}
+                <p class="text-warning">Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+        <br>
+            <form method="POST" class="collapse" id="logine">  <!-- action="javascript:alert('Done')" -->
+            {% csrf_token %}
+
+            <div class="row m-3 h5">
+                <div class="ml-5 mr-5 text-primary text-lg">
+                    {{ form.username.label_tag }}&nbsp
+                </div>
+                {{ form.username }}
+            </div>
+
+             <div class="row m-3 h5">
+                <div class="ml-5 mr-5 text-primary text-lg">
+                    {{ form.password.label_tag }}&nbsp&nbsp
+                </div>
+                    {{ form.password }}
+            </div>
+
+            <br>
+            <br>
+
+            <div class="text-center">
+                <button class="btn btn-lg btn-primary col-md-6" id="logsubmit">Submit</button>
+            </div>
+
+            <br>
+            <br>
+            <div class="text-center">
+            <a href="{% url 'password_reset' %}" class="col-md-4 btn btn-warning" roll="button">
+                <b>Forget Your Password?</b></a>
+            </form>
+        </div>
+        </div>
+
+
+        <a href="{% url 'register' %}" class="col-md-12 btn btn-lg btn-success" roll="button"
+            aria-pressed="true"><b>Register</b></a>
+        <br><br>
+        <a href="/" class="col-md-12 btn btn-lg btn-Info" roll="button"
+            aria-pressed="true"><b>Main Page</b></a>
+            
+    </div>
+
+    <script type="text/javascript">
+    
+        var user_id = document.getElementById('id_username')
+        user_id.className = ("bg-info form-control col-md-8 ml-4")
+
+        var pass_id = document.getElementById('id_password')
+        pass_id.className = ("bg-info form-control col-md-8 ml-4")
+
+    </script>
+
+    {% endblock %}

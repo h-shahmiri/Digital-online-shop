@@ -1,0 +1,266 @@
+{% extends 'navbar.html' %}
+
+    {% comment %} {% include 'black_navbar.html' %} {% endcomment %}
+
+    {% block content %}
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+
+	<div class="container">
+    <!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>منو کاربری</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+  
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+        <p class="text-center text-warning billing-alert h1">اطلاعات شخصی خود را کامل نمایید و ما را در خدمات دهی بهتر یاری نمایید</p>
+        <br>
+        <p class="text-center billing-alert">Thank you. Your order has been received.</p>
+        <div class="row mb-5">
+        <div class="col-md-6 col-xl-6">
+          <div class="confirmation-card">
+            <h3 class="billing-title">مشخصات اصلی</h3>
+            <table class="col-md-12 order-rable">
+              <tr class="row text-center">
+                <td class="text-center"> {{ user_details.first_name }}</td>
+                <td>: نام</td>
+              </tr>
+              <tr class="row">
+                <td class="text-left">{{ user_details.last_name }}</td>
+                <td class="text-right"> : نام خانودگی</td>
+              </tr>
+              <tr class="row">
+                <td class="text-left">{{ profile_details.national_code }}</td>
+                <td class="text-right">: کد ملی</td>
+              </tr>
+              <tr class="row">
+                <td class="text-left">Check payments</td>
+                <td class="text-right">: نام پدر</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-6">
+          <div class="confirmation-card">
+            <h3 class="billing-title">ارتباط</h3>
+            <table class="order-rable" style="width:100%;">
+              <tr class="row">
+                <td class="text-left">{{ profile_details.phone_numb }}</td>
+                <td class="text-right">: شماره همراه</td>
+              </tr>
+              <tr class="row">
+                <td class="text-right">{{ user_details.email }}</td>
+                <td class="text-right">: ایمیل</td>
+              </tr>
+              <tr class="row">
+                <td class="text-right">{{ profile_details.post_code }}</td>
+                <td class="text-right">: کد پستی</td>
+              </tr>
+              <tr class="row">
+                <td class="text-right">{{ profile_details.post_code }}</td>
+                <td class="text-right">: کد پستی</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+  <!-- ==================================================================================================================-->
+
+    <div class="row mb-5">
+        <div class="col-md-6 col-xl-12 mb-2">
+          <div class="confirmation-card">
+            <b><h3 class="billing-title"> آدرس ها</b></h3>
+            <table class="order-rable col-md-12">
+              <tr class="row">
+                <td class="text-right">استان : {{ profile_details.state }}</td>
+              </tr>
+              <tr class="row">
+                <td class="text-right">شهر : {{ profile_details.city }}</td>
+              </tr>
+              <tr class="row">
+                <td class="text-right text-white">{{ profile_details.address }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------->
+    <br><br>
+
+    <section id="sec2">
+      <div class="panel-group" id="panelg">
+      <div id="intro" class="panel panel-default  collapse show">
+        <div class="panel-heading text-center row">
+
+            <button data-toggle="collapse" href="#hel1" data-parent="#panelg" 
+              class="col-md-3 text-center btn btn-warning p-3 h4">تراکنش ها</button>
+            <button data-toggle="collapse" href="#hel2" data-parent="#panelg" 
+              class="col-md-3 text-center btn btn-danger p-3 h4">&nbsp&nbsp فاکتورها</button>
+            <button data-toggle="collapse" href="#hel3" data-parent="#panelg" 
+              class="col-md-3 text-center btn btn-success p-3 h4">آدرس ها</button>
+            <button data-toggle="collapse" href="#hel4" data-parent="#panelg" 
+              class="col-md-3 text-center btn-primary p-3 h4">&nbspتکمیل پروفایل </button>
+        </div>
+
+
+          <div id="hel1" class="panel-collapse collapse">
+            <div class="panel-body text-center bg-dark"><h2 class=" text-white"><br>John Wick: </h2>
+                  
+                  This article is about the 2014 film. For the entertainment franchise, see John Wick.
+
+                  John Wick (retroactively known as John Wick: Chapter 1) is a 2014 American neo-noir action thriller film 
+                  directed by Chad Stahelski, in his directorial debut, and written by Derek Kolstad. It stars Keanu Reeves, 
+                  Michael Nyqvist, Alfie Allen, Adrianne Palicki, Bridget Moynahan, Dean Winters, Ian McShane, John Leguizamo, 
+                  and Willem Dafoe. It is the first installment in the John Wick film series.
+                  <br>                  
+                  The story focuses on John Wick (Reeves), searching for the men who broke into his home, stole his vintage car 
+                  and killed his puppy, which were a last gift to him from his recently deceased wife (Moynahan). Stahelski 
+                  and David Leitch directed the film together, though only Stahelski was credited.
+                  <br>
+                  Kolstad had completed the screenplay in 2012 and further developed it for Thunder Road Pictures. The film 
+                  was produced by Basil Iwanyk of Thunder Road Pictures, Leitch, Eva Longoria, and Michael Witherill. It marks 
+                  Stahelski and Leitch's directorial debut as a team after multiple separate credits as second-unit directors and 
+                  stunt coordinators. They previously worked with Reeves as stunt doubles on The Matrix trilogy.
+                  <br>
+                  Stahelski and Leitch's approach to action scenes drew upon their admiration for anime and martial arts films.
+                  The film used fight choreographers and gun fu techniques from Hong Kong action cinema. The film 
+                  also pays homage to works such as John Woo's The Killer, Jean-Pierre Melville's Le Cercle Rouge and Le Samouraï,
+                  John Boorman's Point Blank, and the spaghetti western films.
+                  <br>
+                  The film was met with positive reviews, with critics calling it one of Reeves' best performances and one of the
+                  best action films of 2014. It grossed $86 million worldwide against a production budget of $20 million. 
+                  Two sequels, John Wick: Chapter 2, and John Wick: Chapter 3 – Parabellum, were released in February 2017 
+                  and May 2019 respectively, both to comparable critical and commercial success, with another sequel, John Wick: 
+                  Chapter 4, set for a May 2021 release. It is also the only film in the series to be distributed by 
+                  Summit Entertainment, as the other films are distributed by Lionsgate Films. 
+              </div>
+          </div>
+          
+
+          <div id="hel2" class="panel-collapse collapse">
+            <div class="panel-body text-center"><h2 class=" text-dark"><br>گزارشات </h2>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="hel3" class="panel-collapse collapse">
+            <div class="panel-body text-center bg-dark"><h2 class=" text-white"><br>آضافه کردن آدرس<br></h2>
+              <form method="POST" class="" id="address">{% csrf_token %}
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ address_form.post_code.label_tag }}
+                    </div>
+                    {{ address_form.post_code }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ address_form.state.label_tag }}&nbsp&nbsp
+                    </div>
+                    {{ address_form.state}}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ address_form.city.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    </div>
+                    {{ address_form.city }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 mr-4 text-white">
+                        {{ address_form.address.label_tag }}&nbsp&nbsp&nbsp
+                    </div>
+                    {{ address_form.address }}
+                </div>
+
+                <br><br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg btn-primary col-md-6 p-3" id="logsubmit">Submit</button>
+                </div>
+              <br>
+                
+              </form>
+            </div>
+          </div>
+
+          <div id="hel4" class="panel-collapse collapse">
+            <div class="panel-body text-center bg-dark"><h2 class=" text-white"><br>{{ request.user }}<br></h2>
+              <form method="POST" class="" id="register">{% csrf_token %}
+                
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-white">
+                        {{ edprf_form.phone_numb.label_tag }}&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </div>
+                    {{ edprf_form.phone_numb }}
+                </div>
+
+                <div class="row m-3 h5">
+                    <div class="ml-5 text-white">
+                        {{ edprf_form.national_code.label_tag }}&nbsp&nbsp
+                    </div>
+                    {{ edprf_form.national_code }}
+                </div>
+
+                <br><br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg btn-primary col-md-6 p-3" id="logsubmit">Submit</button>
+                </div>
+              <br>
+                
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </section>
+  <!--================End Order Details Area =================-->
+</div>
+
+        
+
+{% endblock content %}
