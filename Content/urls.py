@@ -12,11 +12,14 @@ router.register('itemlist' , ItemViewset)
 urlpatterns = [
     # path('additem'  , views.Additem , name='additem'),
     url(r'^$' ,        TemplateView.as_view(template_name = 'index.html'), name = 'home'),
-    path('mobilecat' , views.MobileCat.as_view()  , name='mobilecat'),
-    path('laptopcat' , views.LaptopCat.as_view()  , name='laptopcat'),
-    path('homecat'   , views.HomeCat.as_view()    , name='homecat'),
-    path('itemview'	   , views.ListUser.as_view()),
+    path('mobilecat' , views.MobileCat.as_view() , name='mobilecat'),
+    path('laptopcat' , views.LaptopCat.as_view() , name='laptopcat'),
+    path('homecat'   , views.HomeCat.as_view()   , name='homecat'),
+    path('itemview'	 , views.ListUser.as_view()),
     path('itemlistview', views.ListApiUser.as_view()),
+
+    # ================ Single ITem Product ===================================
+    path('honor8x'   , views.HomeCat.as_view(template_name = 'single-product/honor8x.html') , name='honor8x'),
 ]
 
 urlpatterns += router.urls
