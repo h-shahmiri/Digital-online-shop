@@ -2,10 +2,10 @@ from django import forms
 
 class AddressForm(forms.Form):
 
-    state = (('Tehran','tehran'),
+    states = (('Tehran','tehran'),
             ('Soon','soon'))
 
-    city = (('Tehran','tehran'),
+    citys = (('Tehran','tehran'),
             ('Baharestan','baharestan'),
             ('Shemiranat','shemiranat'),
             ('Robat Karim','robat karim'),
@@ -24,10 +24,10 @@ class AddressForm(forms.Form):
     }))
     state = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={
         "class":"form-control col-md-8 ml-5 text-dark bg-info text-right","id":"regname"
-    }), choices=state)
+    }), choices=states)
     city  = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={
         "class":"form-control col-md-8 ml-5 text-dark bg-info text-right","id":"regname"
-    }), choices=city)
+    }), choices=citys)
     address = forms.CharField(widget=forms.TextInput(attrs={
         "class":"form-control col-md-8 ml-3 text-white bg-info text-right","id":"regname","placeholder":"آدرس"
     }))

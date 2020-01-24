@@ -135,9 +135,13 @@ class ClassProfile(View):
             city      = address_form.cleaned_data['city']
             address   = address_form.cleaned_data['address']
 
+            statestr = ''.join(state)
+            citystr  = ''.join(city)
+            print(statestr," %%%%%%%%%%%%%%% ",citystr)
+
             # Add Details For Address
             # Add address In database
-            address_obj = UserAddress(state_choice = state, city_choice = city, address = address, post_code = post_code)
+            address_obj = UserAddress(state_choice = statestr, city_choice = citystr, address = address, post_code = post_code)
             address_obj.save()
 
             #Get User From Profile and add Details in profile 

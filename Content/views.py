@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from .models import Category, Item
-from django.views.generic import ListView
+from django.views.generic import ListView , TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse
 from .forms import AdditemForm  
@@ -45,10 +45,10 @@ class ItemViewset(ReadOnlyModelViewSet):
 
 #======================================== Index  ============================================================
         
-class MobileCat(View):
+class MobileCat(TemplateView):
 
     models = Category
-    template_name = '/mobilecat.html'
+    template_name = 'mobilecat.html'
 
     # def get(self, request, *args, **kwargs):
         
@@ -63,3 +63,15 @@ class MobileCat(View):
     #     }
 
     #     return render(request, self.template_name, context)
+
+
+class LaptopCat(TemplateView):
+    models = Category
+    template_name = 'laptopcat.html'
+
+
+
+class HomeCat(TemplateView):
+
+    models = Category
+    template_name = 'homecat.html'

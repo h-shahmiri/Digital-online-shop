@@ -16,3 +16,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
     list_filter  = ['national_code' , 'score']
 admin.site.register(Profile ,ProfileAdmin)
+
